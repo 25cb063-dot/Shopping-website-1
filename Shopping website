@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Ecommerce Website</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Navbar */
+.navbar{
+    background:white;
+    padding:15px 40px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand{
+    font-size:32px;
+    font-weight:bold;
+    color:#111;
+}
+
+.nav-link{
+    color:#333 !important;
+    margin:0 10px;
+    font-weight:600;
+}
+
+.nav-link:hover{
+    color:#c89b3c !important;
+}
+
+/* PAGE */
+.page{
+    display:none;
+    padding:60px 20px;
+    min-height:100vh;
+}
+
+.active-page{
+    display:block;
+}
+
+/* Hero */
+.hero{
+    background:linear-gradient(to right,#f8f3ee,#e6d7c9);
+    border-radius:20px;
+    padding:70px;
+}
+
+.hero h1{
+    font-size:60px;
+    font-weight:800;
+}
+
+.hero p{
+    margin-top:20px;
+    color:#555;
+    font-size:18px;
+}
+
+.btn-shop{
+    background:#111;
+    color:white;
+    padding:14px 35px;
+    border:none;
+    border-radius:40px;
+    margin-top:20px;
+}
+
+.btn-shop:hover{
+    background:#c89b3c;
+}
+
+/* Cards */
+.product-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+}
+
+.product-card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.product-card h5{
+    margin-top:15px;
+}
+
+.price{
+    color:#c89b3c;
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* About */
+.about-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+}
+
+/* Contact */
+.contact-box{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+}
+
+/* Cart */
+.cart-item{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.cart-item img{
+    width:100px;
+    border-radius:10px;
+}
+
+/* Footer */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+footer i{
+    margin:10px;
+    font-size:22px;
+}
+
+footer i:hover{
+    color:#c89b3c;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+.hero{
+    padding:30px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+
+<div class="container-fluid">
+
+<a class="navbar-brand" href="#">LUXORA</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showPage('home')">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showPage('shop')">Shop</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showPage('about')">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showPage('cart')">Cart</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+</nav>
+
+<!-- HOME PAGE -->
+<section id="home" class="page active-page">
+
+<div class="container">
+
+<div class="hero">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h1>Elevate Your Style</h1>
+
+<p>
+Luxury fashion collections with modern style and premium quality.
+</p>
+
+<button class="btn-shop" onclick="showPage('shop')">
+Shop Now
+</button>
+
+</div>
+
+<div class="col-lg-6">
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop"
+class="img-fluid rounded">
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SHOP PAGE -->
+<section id="shop" class="page">
+
+<div class="container">
+
+<h1 class="text-center mb-5">Trending Products</h1>
+
+<div class="row">
+
+<div class="col-md-4 mb-4">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="p-4 text-center">
+
+<h5>Brown Fashion Top</h5>
+
+<p class="price">$120</p>
+
+<button class="btn btn-dark">Add to Cart</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="p-4 text-center">
+
+<h5>Luxury Black Shirt</h5>
+
+<p class="price">$180</p>
+
+<button class="btn btn-dark">Add to Cart</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop">
+
+<div class="p-4 text-center">
+
+<h5>Modern Yellow Style</h5>
+
+<p class="price">$145</p>
+
+<button class="btn btn-dark">Add to Cart</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT PAGE -->
+<section id="about" class="page">
+
+<div class="container">
+
+<div class="about-box">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop"
+class="img-fluid rounded">
+
+</div>
+
+<div class="col-lg-6">
+
+<h1>About Us</h1>
+
+<p class="mt-4">
+We create premium ecommerce fashion experiences with stylish luxury collections.
+Our mission is to provide elegance, comfort, and confidence through modern fashion.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CART PAGE -->
+<section id="cart" class="page">
+
+<div class="container">
+
+<h1 class="text-center mb-5">Shopping Cart</h1>
+
+<div class="cart-item">
+
+<div class="d-flex align-items-center">
+
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1200&auto=format&fit=crop">
+
+<div class="ms-4">
+
+<h5>Premium Hoodie</h5>
+
+<p>$90</p>
+
+</div>
+
+</div>
+
+<button class="btn btn-danger">Remove</button>
+
+</div>
+
+<div class="cart-item">
+
+<div class="d-flex align-items-center">
+
+<img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=1200&auto=format&fit=crop">
+
+<div class="ms-4">
+
+<h5>Luxury Jacket</h5>
+
+<p>$150</p>
+
+</div>
+
+</div>
+
+<button class="btn btn-danger">Remove</button>
+
+</div>
+
+<h2 class="text-end mt-4">Total: $240</h2>
+
+</div>
+
+</section>
+
+<!-- CONTACT PAGE -->
+<section id="contact" class="page">
+
+<div class="container">
+
+<div class="contact-box">
+
+<h1 class="text-center mb-5">Contact Us</h1>
+
+<div class="row">
+
+<div class="col-md-6">
+
+<input type="text" class="form-control mb-3" placeholder="Your Name">
+
+<input type="email" class="form-control mb-3" placeholder="Email">
+
+<textarea class="form-control mb-3" rows="5" placeholder="Message"></textarea>
+
+<button class="btn btn-dark w-100">Send Message</button>
+
+</div>
+
+<div class="col-md-6 text-center">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop"
+class="img-fluid rounded">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+
+<h3>LUXORA Ecommerce</h3>
+
+<p>Modern Fashion Store Website</p>
+
+<div>
+
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+<i class="fab fa-twitter"></i>
+<i class="fab fa-youtube"></i>
+
+</div>
+
+</footer>
+
+<!-- JS -->
+<script>
+
+function showPage(pageId){
+
+    let pages = document.querySelectorAll('.page');
+
+    pages.forEach(page => {
+        page.classList.remove('active-page');
+    });
+
+    document.getElementById(pageId).classList.add('active-page');
+}
+
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
